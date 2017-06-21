@@ -18,7 +18,6 @@ gem 'fog'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
-gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 group :development, :test do
