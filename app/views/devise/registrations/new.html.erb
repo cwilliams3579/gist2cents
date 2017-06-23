@@ -1,29 +1,39 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<% content_for :title do %>Sign Up<% end %>
+<br><br><br><br><br><br><br>
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-block" style="background:#fff;">
+      <div class="form-header grey-gradient">
+        <h3><i class="fa fa-pencil faa-horizontal animated"></i> Sign Up</h3>
+      </div>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="md-form">
+          <i class="fa fa-user prefix fa-fonts grey-text"></i>
+          <%= f.text_field :first_name, :autofocus => true, placeholder: "John", class: 'form-control' %>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-user prefix fa-fonts grey-text"></i>
+          <%= f.text_field :last_name, placeholder: "Doe", class: 'form-control' %>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-envelope prefix fa-fonts grey-text"></i>
+          <%= f.email_field :email, placeholder: "johndoe@gmail.com", class: 'form-control' %>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-lock prefix fa-fonts grey-text"></i>
+          <%= f.password_field :password, placeholder: "Create Password", class: 'form-control' %>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-lock prefix fa-fonts grey-text"></i>
+          <%= f.password_field :password_confirmation, placeholder: "Repeat password", class: 'form-control' %>
+        </div>
+        <div class="md-form">
+          <%= f.button "Sign up", class: "btn btn-block btn-rounded grey-gradient", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>Processing..."} %>
+        </div>
+      <% end %>
+        <p class="black-text">Already have an account? <a href="/users/sign_in">Sign In</a></p>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+<br><br>
